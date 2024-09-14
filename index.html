@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> NEPIPEDIA HOME </title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Welcome to NEPIPEDIA </h1>
+  <p>This is a simple website hosted on GitHub Pages.</p>
+
+  <button onclick="displayMessage()">Click Me!</button>
+
+  <p id="message"></p>
+
+  <script>
+    function displayMessage() {
+      document.getElementById("message").textContent = "Hello! You clicked the button.";
+    }
+  </script>
+
+</body>
+</html>
