@@ -28,45 +28,36 @@
   </script>
   <!-- Button to navigate to Nepal page -->
 <button onclick="window.location.href='nepal.html'">Learn About Nepal</button>
-
-<!-- Add this to your index.html or where you want the search bar to appear -->
-<div class="search-container">
-  <input type="text" id="searchInput" placeholder="Search..." onkeyup="searchFunction()">
-</div>
-
-<script>
-  function searchFunction() {
-    // Get the search input
-    let input = document.getElementById("searchInput").value.toUpperCase();
-    
-    // Get all elements with class 'searchable'
-    let elements = document.querySelectorAll(".searchable");
-
-    elements.forEach((element) => {
-      // If the text content of the element matches the search query, display it
-      if (element.textContent.toUpperCase().indexOf(input) > -1) {
-        element.style.display = "";
-      } else {
-        element.style.display = "none";
-      }
-    });
-  }
-</script>
-
-<style>
-  /* Style the search bar */
-  .search-container {
-    margin-top: 20px;
-  }
-
-  #searchInput {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-</style>
-
   
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Search..." onkeyup="searchFunction()">
+  </div>
+
+  <div class="searchable-content">
+    <p class="searchable">Nepal is a landlocked country in South Asia.</p>
+    <p class="searchable">Kathmandu is the capital of Nepal.</p>
+    <p class="searchable">Nepal is famous for Mount Everest.</p>
+    <p class="searchable">The national language of Nepal is Nepali.</p>
+    <p class="searchable">Nepal has a rich cultural heritage.</p>
+  </div>
+
+  <script>
+    function searchFunction() {
+      // Get the search input and convert to uppercase for case-insensitive search
+      let input = document.getElementById("searchInput").value.toUpperCase();
+      
+      // Get all elements with the class 'searchable'
+      let elements = document.querySelectorAll(".searchable");
+
+      elements.forEach((element) => {
+        // Check if the content contains the search query
+        if (element.textContent.toUpperCase().indexOf(input) > -1) {
+          element.style.display = ""; // Show the element if it matches
+        } else {
+          element.style.display = "none"; // Hide the element if it doesn't match
+        }
+      });
+    }
+  </script>  
 </body>
 </html>
