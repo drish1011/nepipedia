@@ -99,6 +99,7 @@
 
   <div class="comment-section">
     <h2>Leave a Comment</h2>
+    <input type="text" id="nameInput" placeholder="Your Name (optional)" />
     <input type="text" id="commentInput" placeholder="Type your comment here..." />
     <button onclick="addComment()">Add Comment</button>
     <div id="commentsList"></div>
@@ -106,15 +107,19 @@
 
   <script>
     function addComment() {
+      const nameInput = document.getElementById("nameInput");
       const commentInput = document.getElementById("commentInput");
       const commentText = commentInput.value.trim();
+      const nameText = nameInput.value.trim() || "Anonymous"; // Default to "Anonymous"
+
       if (commentText) {
         const commentsList = document.getElementById("commentsList");
         const newComment = document.createElement("div");
         newComment.classList.add("comment");
-        newComment.textContent = commentText;
+        newComment.textContent = `${nameText}: ${commentText}`; // Display name with comment
         commentsList.appendChild(newComment);
         commentInput.value = ""; // Clear the input
+        nameInput.value = ""; // Clear the name input
       } else {
         alert("Please enter a comment.");
       }
