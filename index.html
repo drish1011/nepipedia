@@ -3,55 +3,122 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> NEPIPEDIA HOME </title>
+  <title>NEPIPEDIA HOME</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       text-align: center;
-      margin-top: 50px;
+      margin: 50px;
+      background-color: #F2F4F8;
+      color: #1F1A78; /* Dark blueberry shade */
+    }
+    h1 {
+      color: #4B3F72; /* Lighter blueberry shade */
+    }
+    button {
+      background-color: #6C63FF; /* Vibrant blueberry color */
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 15px;
+      cursor: pointer;
+      margin: 10px;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #4B3F72; /* Darker shade on hover */
+    }
+    .search-container {
+      margin: 20px 0;
+      position: relative;
+    }
+    input[type="text"] {
+      border: 2px solid #6C63FF;
+      border-radius: 20px;
+      padding: 10px 30px 10px 15px;
+      width: 300px;
+    }
+    .search-icon {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #6C63FF;
+    }
+    .comment-section {
+      margin-top: 30px;
+      background-color: #E0E1FF; /* Light blueberry background */
+      padding: 15px;
+      border-radius: 10px;
+    }
+    .comment {
+      border-bottom: 1px solid #6C63FF;
+      padding: 10px 0;
+    }
+    #commentsList {
+      max-height: 150px;
+      overflow-y: auto;
     }
   </style>
 </head>
 <body>
 
-  <h1>Welcome to NEPIPEDIA </h1>
+  <h1>Welcome to NEPIPEDIA</h1>
   <p>This is a simple website hosted on GitHub Pages.</p>
 
   <button onclick="displayMessage()">Click Me!</button>
 
   <p id="message"></p>
 
-  <script>
-    function displayMessage() {
-      document.getElementById("message").textContent = "Hello! You clicked the button.";
-         }
-  </script>
-  <!-- Button to navigate to Nepal page -->
-<button onclick="window.location.href='nepal.html'">Learn About Nepal</button>
-<button onclick="window.location.href='languages.html' ">Languages of Nepal</button>
-<button onclick="window.location.href='ethnicities.html' ">Ethnicities of Nepal</button>
-  
+  <button onclick="window.location.href='nepal.html'">Learn About Nepal</button>
+  <button onclick="window.location.href='languages.html'">Languages of Nepal</button>
+  <button onclick="window.location.href='ethnicities.html'">Ethnicities of Nepal</button>
+
   <div class="search-container">
+    <span class="search-icon">🔍</span>
     <input type="text" id="searchInput" placeholder="Search..." onkeyup="searchFunction()">
   </div>
 
   <script>
-    function searchFunction() {
-      // Get the search input and convert to uppercase for case-insensitive search
-      let input = document.getElementById("searchInput").value.toUpperCase();
-      
-      // Get all elements with the class 'searchable'
-      let elements = document.querySelectorAll(".searchable");
+    function displayMessage() {
+      document.getElementById("message").textContent = "Hello! You clicked the button.";
+    }
 
+    function searchFunction() {
+      let input = document.getElementById("searchInput").value.toUpperCase();
+      let elements = document.querySelectorAll(".searchable");
       elements.forEach((element) => {
-        // Check if the content contains the search query
         if (element.textContent.toUpperCase().indexOf(input) > -1) {
-          element.style.display = ""; // Show the element if it matches
+          element.style.display = ""; 
         } else {
-          element.style.display = "none"; // Hide the element if it doesn't match
+          element.style.display = "none"; 
         }
       });
     }
-  </script>  
+  </script>
+
+  <div class="comment-section">
+    <h2>Leave a Comment</h2>
+    <input type="text" id="commentInput" placeholder="Type your comment here..." />
+    <button onclick="addComment()">Add Comment</button>
+    <div id="commentsList"></div>
+  </div>
+
+  <script>
+    function addComment() {
+      const commentInput = document.getElementById("commentInput");
+      const commentText = commentInput.value.trim();
+      if (commentText) {
+        const commentsList = document.getElementById("commentsList");
+        const newComment = document.createElement("div");
+        newComment.classList.add("comment");
+        newComment.textContent = commentText;
+        commentsList.appendChild(newComment);
+        commentInput.value = ""; // Clear the input
+      } else {
+        alert("Please enter a comment.");
+      }
+    }
+  </script>
 </body>
 </html>
