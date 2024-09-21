@@ -9,18 +9,20 @@
       font-family: 'Arial', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f0f0f0;
+      background-color: #f0f8ff; /* Light pastel background */
     }
 
     header {
-      background-color: #ff6f61;
+      background-color: #ff7f50; /* Coral */
       color: white;
       padding: 20px;
       text-align: center;
+      border-bottom: 5px solid #ff6347; /* Tomato */
     }
 
     h1 {
       margin: 0;
+      font-size: 2.5em;
     }
 
     #main-content {
@@ -29,10 +31,15 @@
       margin: auto;
       background-color: white;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border-radius: 10px;
     }
 
     .section {
       margin-bottom: 40px;
+      padding: 15px;
+      border-left: 5px solid #ff9f00; /* Sunflower */
+      background-color: #fff3e0; /* Light peach */
+      border-radius: 10px;
     }
 
     .section h2 {
@@ -48,14 +55,14 @@
     }
 
     footer {
-      background-color: #ff6f61;
+      background-color: #ff7f50; /* Coral */
       color: white;
       padding: 10px;
       text-align: center;
     }
 
     button {
-      background-color: #4CAF50;
+      background-color: #4CAF50; /* Green */
       border: none;
       color: white;
       padding: 15px 32px;
@@ -66,18 +73,45 @@
       margin: 10px;
       cursor: pointer;
       border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #45a049; /* Darker green */
     }
 
     #fun-fact {
-      color: #ff6f61;
+      color: #ff6347; /* Tomato */
       font-size: 18px;
       margin-top: 20px;
       font-weight: bold;
     }
 
+    .images {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
+
+    .images img {
+      width: 300px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
     @media (max-width: 768px) {
       #main-content {
         padding: 15px;
+      }
+
+      .images {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .images img {
+        margin-bottom: 15px;
       }
     }
   </style>
@@ -108,6 +142,24 @@
     <div class="section">
       <h2>Culture and Traditions</h2>
       <p>Nepal is known for its vibrant festivals, traditional music, and colorful dances. The country celebrates a variety of religious and cultural festivals, such as Dashain, Tihar, and Buddha Jayanti. Nepalese cuisine includes dishes such as "dal bhat," "momo," and "sel roti," which reflect the country’s cultural diversity.</p>
+    </div>
+
+    <div class="section">
+      <h2>Economy and Agriculture</h2>
+      <p>Nepal's economy is primarily based on agriculture, with about two-thirds of the population engaged in farming. Major crops include rice, maize, and wheat. Tourism also plays a significant role in the economy, with many visitors drawn to the country for trekking, mountaineering, and cultural experiences.</p>
+    </div>
+
+    <div class="section">
+      <h2>Flora and Fauna</h2>
+      <p>Nepal boasts a rich biodiversity, ranging from tropical forests in the Terai region to alpine ecosystems in the Himalayas. The country is home to various national parks and conservation areas, protecting species like the Bengal tiger, one-horned rhinoceros, and red panda.</p>
+    </div>
+
+    <div class="section">
+      <h2>Map and Flag of Nepal</h2>
+      <div class="images">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Flag_of_Nepal.svg/1920px-Flag_of_Nepal.svg.png" alt="Flag of Nepal">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Nepal_location_map.svg/1920px-Nepal_location_map.svg.png" alt="Map of Nepal">
+      </div>
     </div>
 
     <button onclick="showFunFact()">Show Fun Fact!</button>
